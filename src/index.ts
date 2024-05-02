@@ -1,5 +1,5 @@
-import arg from 'arg'
 import type { ParseArgParams } from './types'
+import arg from 'arg'
 
 export function parseArg(param: ParseArgParams) {
   const spec: arg.Spec = {}
