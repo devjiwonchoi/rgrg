@@ -2,8 +2,23 @@
   "name": "rgrg",
   "version": "0.0.0",
   "license": "MIT",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "arg": "^5.0.2"
+  },
   "devDependencies": {
+    "@swc/core": "^1.4.17",
+    "@swc/jest": "^0.2.36",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.12.8",
+    "jest": "^29.7.0",
     "typescript": "^5.4.5"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.(t|j)sx?$": "@swc/jest"
+    }
   }
 }
