@@ -1,4 +1,9 @@
 {
   "name": "rgrg",
-  "version": "0.0.0"
+  "version": "0.0.0",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.12.8",
+    "typescript": "^5.4.5"
+  }
 }
