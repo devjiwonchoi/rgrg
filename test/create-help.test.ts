@@ -1,6 +1,6 @@
 import rgrg from '../src'
 
-const po2mo = {
+const param = {
   '--version': {
     info: 'output the version number',
     aliases: ['-v'],
@@ -36,14 +36,18 @@ const dummyProcessArgv = [
 ]
 const argv = dummyProcessArgv.slice(2)
 
-describe('rgrg', () => {
-  it('should parse arguments', () => {
-    const result = rgrg(po2mo, { argv })
-    expect(result).toEqual({
-      _: ['src'],
-      '--config': 'config.json',
-      '--output': 'output',
-      '--help': true,
-    })
+describe('help message', () => {
+  it('should create help message', () => {
+    const result = rgrg(param, { argv, help: true })
+    expect(result.helpMessage).toEqual(text)
   })
 })
+
+const text =
+  'Options:\n' +
+  '  -v, --version          output the version number\n' +
+  '  -h, --help             output usage information\n' +
+  '  -o, --output <path>    specify output path\n' +
+  '  -r, --recursive        convert po files recursively\n' +
+  '  --config <path>        specify config file path\n' +
+  '  --cwd <path>           specify current working directory\n'
