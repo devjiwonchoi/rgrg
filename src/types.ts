@@ -5,4 +5,5 @@ export type ParseArgParams = {
 
 export type RgrgOptions = Options & {
   help?: true
+  usage?: string
 }

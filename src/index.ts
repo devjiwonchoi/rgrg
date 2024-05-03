@@ -34,7 +34,7 @@ export function parseArg(param: ParseArgParams) {
 //   -r, --recursive        convert po files recursively
 //   --config <path>        specify config file path
 //   --cwd <path>           specify current working directory
-export function createHelpMessage(param: ParseArgParams) {
+export function createHelpMessage(param: ParseArgParams, options: RgrgOptions) {
   const foo: {
     flagString: string
     info: string
@@ -55,12 +55,13 @@ export function createHelpMessage(param: ParseArgParams) {
     const padding = ' '.repeat(maxLength - f.flagString.length)
     helpMessage += `  ${f.flagString}${padding}${f.info}\n`
   }
-  return helpMessage
+  const usage = options.usage ? `Usage: ${options.usage}\n` : ''
+  return usage + helpMessage
 }
 
 export default function rgrg(param: ParseArgParams, options: RgrgOptions) {
   if (options.help) {
-    const helpMessage = createHelpMessage(param)
+    const helpMessage = createHelpMessage(param, options)
     return { ...arg(parseArg(param), options), helpMessage }
   }
   return arg(parseArg(param), options)

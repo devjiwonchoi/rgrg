@@ -38,12 +38,13 @@ const argv = dummyProcessArgv.slice(2)
 
 describe('help message', () => {
   it('should create help message', () => {
-    const result = rgrg(param, { argv, help: true })
+    const result = rgrg(param, { argv, help: true, usage: 'po2mo [options]' })
     expect(result.helpMessage).toEqual(text)
   })
 })
 
 const text =
+  'Usage: po2mo [options]\n' +
   'Options:\n' +
   '  -v, --version          output the version number\n' +
   '  -h, --help             output usage information\n' +
